@@ -27,13 +27,10 @@ export class UsuarioService {
     }
 
   // Adiciona novo usuario
-  adicionarNovo(tela: any): Observable<any> {
-
-    let API_URL = `${this.REST_API}/adicionar`;
-    console.log(tela);
-    
+  adicionarNovo(parametros: any): Observable<any> {
+    let API_URL = `${this.REST_API}/adicionar`;    
     return this.httpClient
-      .post(API_URL, tela)
+      .post(API_URL, parametros)
       .pipe(catchError(this.handleError));
   }
 

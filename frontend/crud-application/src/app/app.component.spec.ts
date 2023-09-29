@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-mean-crud-tutorial'`, () => {
+  it(`should have as title 'crud'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-mean-crud-tutorial');
+    expect(app.title).toEqual('crud');
   });
 
   it('should render title', () => {
