@@ -1,11 +1,12 @@
-package com.knf.dev.demo.crudapplication.repository;
+package br.com.dev.demo.application.repository;
 
-import com.knf.dev.demo.crudapplication.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.dev.demo.application.entity.Usuario;
+
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 }

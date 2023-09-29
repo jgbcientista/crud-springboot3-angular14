@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AddUserComponent } from './components/add-user/add-user.component';
-import { UserDetailComponent } from './components/user-detail/user-detail.component';
-import { UsersListComponent } from './components/users-list/users-list.component';
+import { AddUserComponent } from './components/novo-usuario/add-user.component';
+import { UserDetailComponent } from './components/detalhe-usuario/user-detail.component';
+import { UsersListComponent } from './components/lista-usuario/users-list.component';
 
 @NgModule({
   declarations: [

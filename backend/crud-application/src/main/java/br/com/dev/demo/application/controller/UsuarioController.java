@@ -1,77 +1,62 @@
-package com.knf.dev.demo.crudapplication.controller;
+package br.com.dev.demo.application.controller;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.knf.dev.demo.crudapplication.entity.User;
-import com.knf.dev.demo.crudapplication.exception.ResourceNotFoundException;
-import com.knf.dev.demo.crudapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.dev.demo.application.entity.Usuario;
+import br.com.dev.demo.application.service.UsuarioService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v1")
-public class UserController {
-    @Autowired
-    private UserRepository userRepository;
+@RequestMapping("/api/usuario/v1")
+public class UsuarioController {
+	@Autowired
+	private UsuarioService usuarioService;
 
-    // get all users
-    @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+	// get all users
+	@GetMapping("/todos")
+	public List<Usuario> getAllUsers() {
+		return usuarioService.getAllUsers();
+	}
 
-    // create user rest API
-    @PostMapping("/users")
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
+	// create user rest API
+	@PostMapping("/adicionar")
+	public Usuario criar(@RequestBody @Validated Usuario usuario) {
+		return usuarioService.salvar(usuario);
+	}
 
-    // get user by id rest api
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException
-                      ("User not exist with id :" + id));
-        return ResponseEntity.ok(user);
-    }
+	// get user by id rest api
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> obterPorId(@PathVariable Long id) {
+		return ResponseEntity.ok(usuarioService.obterPorId(id));
+	}
 
-    // update user rest api
-    @PutMapping("/users/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id,
-             @RequestBody User userDetails) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException
-                      ("User not exist with id :" + id));
-        user.setFirstName(userDetails.getFirstName());
-        user.setLastName(userDetails.getLastName());
-        user.setEmailId(userDetails.getEmailId());
-        User updatedUser = userRepository.save(user);
-        return ResponseEntity.ok(updatedUser);
-    }
+	// update user rest api
+	@PutMapping("/atualizar/{id}")
+	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario usuarioUpdate) {
+		return ResponseEntity.ok(usuarioService.atualizar(id, usuarioUpdate));
+	}
 
-    // delete user rest api
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<Map<String, Boolean>> deleteUser
-               (@PathVariable Long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException
-            ("User not exist with id :" + id));
-        userRepository.delete(user);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return ResponseEntity.ok(response);
-    }
+	// delete user rest api
+	@DeleteMapping("/remover/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
+		usuarioService.remover(id);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("Removido", Boolean.TRUE);
+		return ResponseEntity.ok(response);
+	}
 }

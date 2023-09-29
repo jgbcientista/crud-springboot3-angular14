@@ -1,4 +1,4 @@
-package com.knf.dev.demo.crudapplication;
+package br.com.dev.demo.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

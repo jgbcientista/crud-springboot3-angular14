@@ -1,4 +1,4 @@
-package com.knf.dev.demo.crudapplication.exception;
+package br.com.dev.demo.application.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
