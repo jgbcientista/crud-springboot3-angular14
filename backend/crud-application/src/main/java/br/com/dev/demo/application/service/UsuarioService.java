@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.dev.demo.application.dto.UsuarioDTO;
 import br.com.dev.demo.application.entity.Usuario;
 import br.com.dev.demo.application.exception.ResourceNotFoundException;
 import br.com.dev.demo.application.repository.UsuarioRepository;
@@ -25,8 +26,11 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 
-	public Usuario salvar(Usuario usuario) {
-		return usuarioRepository.save(usuario);
+	public Usuario salvar(UsuarioDTO usuario) {
+		UsuarioDTO dto = new UsuarioDTO();
+		
+		return null;
+		//return usuarioRepository.save(usuario);
 	}
 
 	public Usuario atualizar(Long id, Usuario usuarioUpdate) {

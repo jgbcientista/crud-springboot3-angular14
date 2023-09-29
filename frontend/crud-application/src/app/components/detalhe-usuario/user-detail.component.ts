@@ -41,7 +41,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit() {}
 
   onUpdate(): any {
-    this.usuarioService.updateUser(this.getId, this.updateForm.value).subscribe(
+    this.usuarioService.atualizarUsuario(this.getId, this.updateForm.value).subscribe(
       () => {
         console.log('Dados atualizado com sucesso!');
         this.ngZone.run(() => this.router.navigateByUrl('/users-list'));

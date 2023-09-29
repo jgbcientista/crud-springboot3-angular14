@@ -49,7 +49,7 @@ export class UsuarioService {
   }
 
   // Update
-  updateUser(id: any, data: any): Observable<any> {
+  atualizarUsuario(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/atualizar/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })

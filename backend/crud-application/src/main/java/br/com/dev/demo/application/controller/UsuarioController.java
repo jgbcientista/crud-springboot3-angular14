@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.dev.demo.application.dto.UsuarioDTO;
 import br.com.dev.demo.application.entity.Usuario;
 import br.com.dev.demo.application.service.UsuarioService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -35,7 +35,7 @@ public class UsuarioController {
 
 	// create user rest API
 	@PostMapping("/adicionar")
-	public Usuario criar(@RequestBody @Validated Usuario usuario) {
+	public Usuario criar(@RequestBody UsuarioDTO usuario) {
 		return usuarioService.salvar(usuario);
 	}
 
