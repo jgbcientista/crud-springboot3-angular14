@@ -1,33 +1,27 @@
 package br.com.dev.demo.application.dto;
 
-import org.hibernate.validator.constraints.Length;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import jakarta.validation.constraints.NotBlank;
-
 public class UsuarioDTO {
 
 	private Long id;
 
-	@NotBlank
-	@Length(min = 1, max =100, message = "Campo de preenchimento obrigatório")
-	@JsonProperty(value = "nome")
+//	@NotBlank
+//	@Length(min = 1, max =100, message = "Campo de preenchimento obrigatório")
+//	@JsonProperty(value = "nome")
 	private String nome;
 
-	@NotBlank
-	@Length(min = 1, max =100, message = "Campo de preenchimento obrigatório")
-	@JsonProperty(value = "email")
+//	@NotBlank
+//	@Length(min = 1, max =100, message = "Campo de preenchimento obrigatório")
+//	@JsonProperty(value = "email")
 	private String email;
 
-	@NotBlank
-	@Length(min = 1, max =30, message = "Campo de preenchimento obrigatório")
-	@JsonProperty(value = "login")
+//	@NotBlank
+//	@Length(min = 1, max =30, message = "Campo de preenchimento obrigatório")
+//	@JsonProperty(value = "login")
 	private String login;
 
-	@NotBlank
-	@Length(min = 1, max =30, message = "Campo de preenchimento obrigatório")
-	@JsonProperty(value = "senha")
+//	@NotBlank
+//	@Length(min = 1, max =30, message = "Campo de preenchimento obrigatório")
+//	@JsonProperty(value = "senha")
 	private String senha;
 
 	public Long getId() {

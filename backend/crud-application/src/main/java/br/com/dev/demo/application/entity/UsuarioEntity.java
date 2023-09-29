@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "TB_USUARIO")
-public class Usuario {
+public class UsuarioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -38,7 +38,7 @@ public class Usuario {
 	@Column(name = "SENHA", length = 30, nullable = false, unique = false)
 	private String senha;
 
-	public Usuario() {
+	public UsuarioEntity() {
 	}
 
 	public Long getId() {

@@ -29,9 +29,8 @@ export class AddUserComponent implements OnInit {
 
 
   onSubmit(): any {
-    let usuario = {'usuario': this.userForm.value};
 
-    this.usuarioService.adicionarNovo(usuario).subscribe(
+    this.usuarioService.adicionarNovo(this.userForm.value).subscribe(
       () => {
         console.log('Dados salvo com sucesso');
         this.ngZone.run(() => this.router.navigateByUrl('/users-list'));

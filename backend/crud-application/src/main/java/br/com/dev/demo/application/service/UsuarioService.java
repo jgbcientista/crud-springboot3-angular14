@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.dev.demo.application.dto.UsuarioDTO;
-import br.com.dev.demo.application.entity.Usuario;
+import br.com.dev.demo.application.entity.UsuarioEntity;
 import br.com.dev.demo.application.exception.ResourceNotFoundException;
 import br.com.dev.demo.application.repository.UsuarioRepository;
 
@@ -16,33 +16,38 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public Usuario obterPorId(Long id) {
-		Usuario usuario = usuarioRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Usuario nao existe com o id: " + id));
-		return usuario;
+	public UsuarioEntity obterPorId(Long id) {
+		UsuarioEntity usuarioEntity = usuarioRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("UsuarioEntity nao existe com o id: " + id));
+		return usuarioEntity;
 	}
 
-	public List<Usuario> getAllUsers() {
+	public List<UsuarioEntity> getAllUsers() {
 		return usuarioRepository.findAll();
 	}
 
-	public Usuario salvar(UsuarioDTO usuario) {
-		UsuarioDTO dto = new UsuarioDTO();
+	public UsuarioEntity salvar(UsuarioDTO usuario) {
 		
-		return null;
-		//return usuarioRepository.save(usuario);
+		UsuarioEntity entity = new UsuarioEntity();
+		entity.setEmail(usuario.getEmail());
+		entity.setId(usuario.getId());
+		entity.setLogin(usuario.getLogin());
+		entity.setNome(usuario.getNome());
+		entity.setSenha(usuario.getSenha());
+
+		return usuarioRepository.save(entity);
 	}
 
-	public Usuario atualizar(Long id, Usuario usuarioUpdate) {
+	public UsuarioEntity atualizar(Long id, UsuarioEntity usuarioUpdate) {
 
-		Usuario usuario = obterPorId(id);
+		UsuarioEntity usuarioEntity = obterPorId(id);
 
-		usuario.setNome(usuarioUpdate.getNome());
-		usuario.setEmail(usuarioUpdate.getEmail());
-		usuario.setLogin(usuarioUpdate.getLogin());
-		usuario.setSenha(usuarioUpdate.getSenha());
+		usuarioEntity.setNome(usuarioUpdate.getNome());
+		usuarioEntity.setEmail(usuarioUpdate.getEmail());
+		usuarioEntity.setLogin(usuarioUpdate.getLogin());
+		usuarioEntity.setSenha(usuarioUpdate.getSenha());
 
-		return usuarioRepository.save(usuario);
+		return usuarioRepository.save(usuarioEntity);
 	}
 
 	public void remover(Long id) {

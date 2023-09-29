@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.dev.demo.application.dto.UsuarioDTO;
-import br.com.dev.demo.application.entity.Usuario;
+import br.com.dev.demo.application.entity.UsuarioEntity;
 import br.com.dev.demo.application.service.UsuarioService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -29,25 +29,25 @@ public class UsuarioController {
 
 	// get all users
 	@GetMapping("/todos")
-	public List<Usuario> getAllUsers() {
+	public List<UsuarioEntity> getAllUsers() {
 		return usuarioService.getAllUsers();
 	}
 
 	// create user rest API
 	@PostMapping("/adicionar")
-	public Usuario criar(@RequestBody UsuarioDTO usuario) {
+	public UsuarioEntity criar(@RequestBody UsuarioDTO usuario) {
 		return usuarioService.salvar(usuario);
 	}
 
 	// get user by id rest api
 	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> obterPorId(@PathVariable Long id) {
+	public ResponseEntity<UsuarioEntity> obterPorId(@PathVariable Long id) {
 		return ResponseEntity.ok(usuarioService.obterPorId(id));
 	}
 
 	// update user rest api
 	@PutMapping("/atualizar/{id}")
-	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario usuarioUpdate) {
+	public ResponseEntity<UsuarioEntity> atualizar(@PathVariable Long id, @RequestBody UsuarioEntity usuarioUpdate) {
 		return ResponseEntity.ok(usuarioService.atualizar(id, usuarioUpdate));
 	}
 
