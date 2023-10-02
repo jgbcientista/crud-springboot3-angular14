@@ -1,21 +1,37 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
   <!-- Links -->
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" routerLink="/users-list"
-      >Lista de usuários</a>
+    <h4>Guedes</h4>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false"> Usuário </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+        <li>
+          <a class="dropdown-item" href="/add-user">Novo</a>
+          <hr class="dropdown-divider">
+          <a class="dropdown-item" routerLinkActive="active" routerLink="/users-list">Lista</a>
+
+          <a class="dropdown-item" href="/add-user">Novo</a>
+          <hr class="dropdown-divider">
+          <a class="dropdown-item" href="/add-user">Novo</a>
+          <a class="dropdown-item" href="/add-user">Novo</a>
+          <a class="dropdown-item" href="/add-user">Novo</a>
+
+        </li>
+
+      </ul>
+      
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" routerLink="/add-user"
-      >Adicionar novo usuário</a
-    >
-    </li>
+
+    
+
   </ul>
 </nav>
 <div class="container">
   <br>
   <h2 style="text-align: center;">{{title}}</h2>
-  <hr>  
+  <hr>
   <router-outlet></router-outlet>
 </div>
 

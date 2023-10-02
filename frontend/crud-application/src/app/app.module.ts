@@ -10,6 +10,7 @@ import { AddUserComponent } from './components/novo-usuario/add-user.component';
 import { UserDetailComponent } from './components/detalhe-usuario/user-detail.component';
 import { UsersListComponent } from './components/lista-usuario/users-list.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
