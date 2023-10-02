@@ -1,38 +1,71 @@
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
-  <!-- Links -->
   <ul class="navbar-nav">
-    <h4>Guedes</h4>
+
+    <!-- FUNCIONDALIDE DO USUARIO -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false"> Usuário </a>
+        aria-expanded="false">Usuário</a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
         <li>
-          <a class="dropdown-item" href="/add-user">Novo</a>
-          <hr class="dropdown-divider">
-          <a class="dropdown-item" routerLinkActive="active" routerLink="/users-list">Lista</a>
-
-          <a class="dropdown-item" href="/add-user">Novo</a>
-          <hr class="dropdown-divider">
-          <a class="dropdown-item" href="/add-user">Novo</a>
-          <a class="dropdown-item" href="/add-user">Novo</a>
-          <a class="dropdown-item" href="/add-user">Novo</a>
-
+          <!-- <hr class="dropdown-divider"> -->
+          <a class="dropdown-item" routerLink="/users-list">Lista de usuários</a>
+          <a class="dropdown-item" routerLink="/add-user">Novo usuário</a>
         </li>
-
       </ul>
-      
     </li>
 
-    
+    <!-- FUNCIONDALIDE DO FORNCEDOR -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Fornecedor</a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/users-list">Lista de fornecedores</a>
+          <a class="dropdown-item" routerLink="/add-user">Novo fornecedor</a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- FUNCIONDALIDE DO CHAMADO -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Chamado</a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/users-list">Lista de chamados</a>
+          <a class="dropdown-item" routerLink="/add-user">Novo chamado</a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- FUNCIONDALIDE DO SERVICOS -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Serviços</a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/users-list">Lista de serviços</a>
+          <a class="dropdown-item" routerLink="/add-user">Solicitação de serviço</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" routerLink="/users-list">Contato</a>
+    </li>
+
 
   </ul>
+
+
+
 </nav>
 <div class="container">
   <br>
   <h2 style="text-align: center;">{{title}}</h2>
   <hr>
-  <router-outlet></router-outlet>
-</div>
 
+</div>
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <ul class="navbar-nav"> </ul>
+  </nav>
 <router-outlet></router-outlet>
